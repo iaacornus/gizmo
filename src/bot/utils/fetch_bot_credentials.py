@@ -4,17 +4,18 @@ from typing import NoReturn
 
 from dotenv import load_dotenv
 
+from src.data.bot_cred import BotCred
 from src.utils.log.logger import Logger
 
 
-def fetch_bc(log: Logger) -> dict[str, str] | NoReturn:
+def fetch_bc(log: Logger) -> BotCred | NoReturn:
     """Fetch the credentials of the bot in the .env file.
 
     Args:
         log -- the instance of Logger.
 
     Returns:
-        A map of values of the the bot credentials.
+        The bot credentials with updated values.
     """
 
     BASE_PATH: str = "/".join(dirname(__file__).split("/")[:-2])
@@ -24,9 +25,9 @@ def fetch_bc(log: Logger) -> dict[str, str] | NoReturn:
         log.logger("E", "Bot credentials not found, aborting ...")
         raise SystemExit
 
-    bot_cred: dict[str, str]
 
     load_dotenv(f"{BASE_PATH}/bot.env")
-    bot_cred["TOKEN"] = getenv("TOKEN")
 
-    return bot_cred
+    return BotCred(
+        getenv("TOKEN")
+    )
