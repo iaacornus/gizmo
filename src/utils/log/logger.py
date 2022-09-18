@@ -9,7 +9,12 @@ from rich.logging import RichHandler
 class Logger:
     """Custom logger."""
 
-    def __init__(self) -> None:
+    def __init__(self, filename: str = "gizmo") -> None:
+        """
+        Args:
+            filename -- filename to use.
+        """
+
         logging.basicConfig(
             format="%(message)s",
             level=logging.INFO,
@@ -34,7 +39,7 @@ class Logger:
                 )
 
         file_log: logging.FileHandler = logging.FileHandler(
-                filename=f"{BASE_PATH}/gizmo.log"
+                filename=f"{BASE_PATH}/{filename}.log"
             )
 
         file_log.setLevel(logging.INFO)
