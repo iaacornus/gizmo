@@ -18,7 +18,7 @@ def fetch_bc(log: Logger) -> BotCred | NoReturn:
         The bot credentials with updated values.
     """
 
-    BASE_PATH: str = "/".join(dirname(__file__).split("/")[:-2])
+    BASE_PATH: str = "/".join(dirname(__file__).split("/")[:-3])
     PATH: str = f"{BASE_PATH}/bot.env"
 
     if not exists(PATH):
