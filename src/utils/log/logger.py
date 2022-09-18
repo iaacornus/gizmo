@@ -24,7 +24,7 @@ class Logger:
 
         self.log: logging.Logger = logging.getLogger("rich")
 
-        BASE_PATH: Path = Path.home()/".simtex"
+        BASE_PATH: Path = Path.home()/".gizmo"
         if not exists(BASE_PATH):
             try:
                 mkdir(BASE_PATH)
@@ -34,7 +34,7 @@ class Logger:
                 )
 
         file_log: logging.FileHandler = logging.FileHandler(
-                filename=f"{BASE_PATH}/simtex.log"
+                filename=f"{BASE_PATH}/gizmo.log"
             )
 
         file_log.setLevel(logging.INFO)
