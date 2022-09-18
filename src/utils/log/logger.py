@@ -9,7 +9,7 @@ from rich.logging import RichHandler
 class Logger:
     """Custom logger."""
 
-    def __init__(self, filename: str = "gizmo") -> None:
+    def __init__(self, filename: str = "sayu") -> None:
         """
         Args:
             filename -- filename to use.
@@ -29,7 +29,7 @@ class Logger:
 
         self.log: logging.Logger = logging.getLogger("rich")
 
-        BASE_PATH: Path = Path.home()/".gizmo"
+        BASE_PATH: Path = Path.home()/".sayu"
         if not exists(BASE_PATH):
             try:
                 mkdir(BASE_PATH)
