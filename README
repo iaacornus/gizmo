@@ -7,3 +7,18 @@ assistant controlled via discord and voice.
 Some of the planned features of the assistant includes:
 - [ ] voice recognition
 - [ ] execution of command via discord or telegram message
+
+Below is the project structure as of this commit.
+
++-- figs/ # figures
++-- LICENSE
++-- README
++-- requirements.txt
++-- src # source code
+|   +-- bot/ # online interface of bot
+|   |   `-- utils # utilities of online bot
+|   +-- data/ # data needed
+|   `-- utils/ # utilities of program
+|       +-- log/ # package for custom logger
+|       `-- voices/ # contains the text to speech of responses
+`-- sysdeps.txt
