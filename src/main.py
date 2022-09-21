@@ -14,7 +14,7 @@ def main() -> None:
     bot_cred: DCBotCred = fetch_bc(log)
 
     intents = Intents.default()
-    intents.message_content = True
+    intents.message_content = True # type: ignore
 
     client = BotClient(log, intents=intents)
     client.run(bot_cred.token)
