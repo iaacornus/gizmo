@@ -1,6 +1,6 @@
 from os import getenv
 from os.path import dirname, exists
-from typing import NoReturn
+from typing import NoReturn, Optional
 
 from dotenv import load_dotenv
 
@@ -28,6 +28,8 @@ def fetch_bc(log: Logger) -> DCBotCred | NoReturn:
 
     load_dotenv(f"{BASE_PATH}/bot.env")
 
-    token: str = token_ (token_ := getenv("TOKEN")) if not None else "EMPTY"
-
+    token_: Optional[str]
+    token: str = (
+            token_ if (token_ := getenv("TOKEN")) is not None else "EMPTY"
+        )
     return DCBotCred(token)
