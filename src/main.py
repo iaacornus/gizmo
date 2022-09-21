@@ -3,7 +3,7 @@ from discord import Intents
 from src.bot.bot import BotClient
 from src.data.bot_cred import BotCred
 from src.bot.utils.fetch_bot_credentials import fetch_bc
-from src.utils.log.logger import Logger
+from src.utils.clog.logger import Logger
 
 
 def main() -> None:

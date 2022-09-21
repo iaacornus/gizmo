@@ -5,7 +5,7 @@ from typing import NoReturn
 from dotenv import load_dotenv
 
 from src.data.bot_cred import BotCred
-from src.utils.log.logger import Logger
+from src.utils.clog.logger import Logger
 
 
 def fetch_bc(log: Logger) -> BotCred | NoReturn:
