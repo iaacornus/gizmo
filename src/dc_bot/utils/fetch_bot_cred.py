@@ -28,6 +28,6 @@ def fetch_bc(log: Logger) -> DCBotCred | NoReturn:
 
     load_dotenv(f"{BASE_PATH}/bot.env")
 
-    return DCBotCred(
-        getenv("TOKEN")
-    )
+    token: str = token_ (token_ := getenv("TOKEN")) if not None else "EMPTY"
+
+    return DCBotCred(token)
