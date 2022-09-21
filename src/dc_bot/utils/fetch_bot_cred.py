@@ -4,11 +4,11 @@ from typing import NoReturn
 
 from dotenv import load_dotenv
 
-from src.data.bot_cred import BotCred
+from pkg_data.dc_bot_cred import DCBotCred
 from utils.clog.clogger import Logger
 
 
-def fetch_bc(log: Logger) -> BotCred | NoReturn:
+def fetch_bc(log: Logger) -> DCBotCred | NoReturn:
     """Fetch the credentials of the bot in the .env file.
 
     Args:
@@ -28,6 +28,6 @@ def fetch_bc(log: Logger) -> BotCred | NoReturn:
 
     load_dotenv(f"{BASE_PATH}/bot.env")
 
-    return BotCred(
+    return DCBotCred(
         getenv("TOKEN")
     )
