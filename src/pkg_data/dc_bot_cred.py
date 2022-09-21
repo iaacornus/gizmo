@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class BotCred:
+class DCBotCred:
     """Bot credentials."""
 
     token: str
