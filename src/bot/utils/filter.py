@@ -1,4 +1,4 @@
-from src.utils.clog.logger import Logger
+from utils.clog.clogger import Logger
 
 
 def filter(log: Logger, msg: str) -> list[str]:
