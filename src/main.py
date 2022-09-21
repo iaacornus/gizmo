@@ -1,7 +1,7 @@
 from discord import Intents
 
 from dc_bot.dc_bot import BotClient
-from pkg_data.dc_bot_cred import BotCred
+from pkg_data.dc_bot_cred import DCBotCred
 from dc_bot.utils.fetch_bot_cred import fetch_bc
 from utils.clog.clogger import Logger
 
@@ -11,7 +11,7 @@ def main() -> None:
 
     log: Logger = Logger()
 
-    bot_cred: BotCred = fetch_bc(log)
+    bot_cred: DCBotCred = fetch_bc(log)
 
     intents = Intents.default()
     intents.message_content = True
