@@ -3,7 +3,7 @@ from src.utils.clog.clogger import Logger
 
 def filter(
         log: Logger, msg: str, commands: dict[str, str | list[str]]
-    ) -> str | None:
+    ) -> tuple[bool, str | None]:
     """Determine the command based on message of the user.
 
     Args:
@@ -11,7 +11,7 @@ def filter(
         msg -- message content of the user
 
     Returns:
-        The feedback to command.
+        Whether the message is a correct command and its feedback.
     """
 
     def eval_cmd(log: Logger, cmd: str, command: str) -> str | None:
@@ -44,13 +44,13 @@ def filter(
                 if (
                         feedback := eval_cmd(log, cmd, microcommand)
                     ) is not None:
-                    return feedback
+                    return True, feedback
         else:
             if (
                     feedback := eval_cmd(log, cmd, command)
                 ) is not None:
-                return feedback
+                return True, feedback
 
     stderr: str = f"Command: **{cmd}** not found, skipping"
     log.logger("e", stderr)
-    return stderr
+    return False, stderr
