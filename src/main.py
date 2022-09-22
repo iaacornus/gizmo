@@ -1,8 +1,6 @@
-from discord import Intents
+import asyncio
 
-from src.bot.dc_bot.dc_bot import BotClient
-from src.data.dc_bot.dc_bot_cred import DCBotCred
-from src.bot.shared.utils.dc_bot.fetch_bot_cred import fetch_bc
+from src.bot.dc_bot.dc_bot_main import dc_main
 from src.utils.clog.clogger import Logger
 
 
@@ -10,14 +8,7 @@ def main() -> None:
     """Main module of AI."""
 
     log: Logger = Logger()
-
-    bot_cred: DCBotCred = fetch_bc(log)
-
-    intents = Intents.default()
-    intents.message_content = True
-
-    client = BotClient(log, intents=intents)
-    client.run(bot_cred.token)
+    asyncio.run(dc_main(log))
 
 
 if __name__ == "__main__":
