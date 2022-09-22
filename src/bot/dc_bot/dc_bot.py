@@ -1,6 +1,7 @@
 from typing import Any
 
 from discord import Client, Intents
+from discord.errors import HTTPException
 
 from src.bot.shared.utils.dc_bot.filter import filter
 from src.utils.clog.clogger import Logger
@@ -28,5 +29,10 @@ class BotClient(Client):
         feedback: list[str] | str = filter(
                 self.log, message.content, self.commands
             )
-        if feedback is not None:
-            await message.channel.send(feedback)
+        try:
+            if feedback is not None:
+                await message.channel.send(feedback)
+        except HTTPException:
+            self.log.logger(
+                "e", f"Cannot send the feedback: {feedback}, skipping ..."
+            )
