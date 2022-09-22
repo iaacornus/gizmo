@@ -1,7 +1,7 @@
 from discord import Intents
 
 from src.dc_bot.dc_bot import BotClient
-from src.pkg_data.dc_bot_cred import DCBotCred
+from src.data.dc_bot_cred import DCBotCred
 from src.dc_bot.utils.fetch_bot_cred import fetch_bc
 from src.utils.clog.clogger import Logger
 

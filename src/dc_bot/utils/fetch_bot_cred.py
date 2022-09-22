@@ -4,7 +4,7 @@ from typing import NoReturn, Optional
 
 from dotenv import load_dotenv
 
-from src.pkg_data.dc_bot_cred import DCBotCred
+from src.data.dc_bot_cred import DCBotCred
 from src.utils.clog.clogger import Logger
 
 
