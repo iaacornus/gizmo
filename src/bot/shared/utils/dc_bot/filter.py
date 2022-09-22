@@ -27,9 +27,9 @@ def filter(
         """
 
         if cmd == f"!{command.lower()}":
-            log.logger("I", f"Command executed: {command}, {cmd}")
             exec_cmd: list[str] = [command]
             exec_cmd.extend(msg.split()[1:])
+            log.logger("I", f"Command executed: {command}, {exec_cmd}")
             return f"Executed command: **{exec_cmd}**"
 
     if not msg.startswith("!"):
