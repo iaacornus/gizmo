@@ -1,9 +1,9 @@
 from discord import Intents
 
-from dc_bot.dc_bot import BotClient
-from pkg_data.dc_bot_cred import DCBotCred
-from dc_bot.utils.fetch_bot_cred import fetch_bc
-from utils.clog.clogger import Logger
+from src.dc_bot.dc_bot import BotClient
+from src.pkg_data.dc_bot_cred import DCBotCred
+from src.dc_bot.utils.fetch_bot_cred import fetch_bc
+from src.utils.clog.clogger import Logger
 
 
 def main() -> None:

@@ -2,7 +2,7 @@ from typing import Any
 
 from discord import Client, Intents
 
-from utils.clog.clogger import Logger
+from src.utils.clog.clogger import Logger
 
 
 class BotClient(Client):

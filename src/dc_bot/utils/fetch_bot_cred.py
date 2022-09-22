@@ -4,8 +4,8 @@ from typing import NoReturn, Optional
 
 from dotenv import load_dotenv
 
-from pkg_data.dc_bot_cred import DCBotCred
-from utils.clog.clogger import Logger
+from src.pkg_data.dc_bot_cred import DCBotCred
+from src.utils.clog.clogger import Logger
 
 
 def fetch_bc(log: Logger) -> DCBotCred | NoReturn:
