@@ -3,7 +3,7 @@ from src.utils.clog.clogger import Logger
 
 def filter(
         log: Logger, msg: str, commands: dict[str, str | list[str]]
-    ) -> tuple[bool, str | None]:
+    ) -> tuple[bool, str] | None:
     """Determine the command based on message of the user.
 
     Args:
@@ -32,12 +32,14 @@ def filter(
             log.logger("I", f"Command executed: {command}, {exec_cmd}")
             return f"Executed command: **{exec_cmd}**"
 
+        return None
+
     if not msg.startswith("!"):
-        return
+        return None
 
     cmd: str = msg.split()[0].lower()
 
-    command: str; microcommand: str
+    command: str | list[str]; microcommand: str
     for command in commands.values():
         if isinstance(command, list):
             for microcommand in command:

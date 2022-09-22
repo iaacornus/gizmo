@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional
 
 from discord import Client, Intents
 from discord.errors import HTTPException
@@ -26,7 +26,7 @@ class BotClient(Client):
         self.log.logger("I", "Bot is ready.")
 
     async def on_message(self, message: Any) -> Any:
-        feedback: list[str] | str = filter(
+        feedback: Optional[tuple[bool, str]] = filter(
                 self.log, message.content, self.commands
             )
         try:

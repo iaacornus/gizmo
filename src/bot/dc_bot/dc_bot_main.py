@@ -1,6 +1,6 @@
 from json import load
 from os.path import dirname
-from typing import TextIO, NoReturn
+from typing import TextIO
 from discord import Intents
 
 from src.bot.dc_bot.dc_bot import BotClient
@@ -9,7 +9,7 @@ from src.bot.shared.utils.dc_bot.fetch_bot_cred import fetch_bc
 from src.utils.clog.clogger import Logger
 
 
-def dc_main(log: Logger) -> None | NoReturn:
+def dc_main(log: Logger) -> None:
     """Main module of the discord bot.
 
     Args:
