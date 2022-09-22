@@ -1,6 +1,8 @@
 {
-    "echo": "echo",
-    "print": "print",
-    "turn on": "turn on",
-    "turn off": "turn off"
+    "echo": ["echo", "print"],
+    "print": ["print-doc"],
+    "turn on": ["turn on", "on"],
+    "turn off": ["turn off", "off"],
+    "send": ["send", "copy"],
+    "save": ["save", "download"]
 }
