@@ -10,15 +10,40 @@ Some of the planned features of the assistant includes:
 
 Below is the project structure as of this commit.
 
-+-- figs/ # figures
++-- check.sh
++-- figs
+|   +-- main
+|   `-- main.png
 +-- LICENSE
 +-- README
 +-- requirements.txt
-+-- src # source code
-|   +-- bot/ # online interface of bot
-|   |   `-- utils # utilities of online bot
-|   +-- data/ # data needed
-|   `-- utils/ # utilities of program
-|       +-- log/ # package for custom logger
-|       `-- voices/ # contains the text to speech of responses
++-- src
+|   +-- bot
+|   |   +-- dc_bot
+|   |   |   +-- dc_bot_main.py
+|   |   |   +-- dc_bot.py
+|   |   |   `-- __init__.py
+|   |   +-- __init__.py
+|   |   `-- shared
+|   |       +-- __init__.py
+|   |       `-- utils
+|   |           +-- dc_bot
+|   |           |   +-- fetch_bot_cred.py
+|   |           |   +-- filter.py
+|   |           |   `-- __init__.py
+|   |           `-- __init__.py
+|   +-- data
+|   |   +-- commands.json
+|   |   +-- dc_bot_cred.py
+|   |   `-- __init__.py
+|   +-- __init__.py
+|   +-- main.py
+|   `-- utils
+|       +-- clog
+|       |   +-- clogger.py
+|       |   `-- __init__.py
+|       +-- __init__.py
+|       `-- voices
+|           `-- __init__.py
 `-- sysdeps.txt
+
