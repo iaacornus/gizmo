@@ -1,6 +1,6 @@
 from json import load
 from os.path import dirname
-from typing import TextIO
+from typing import TextIO, NoReturn
 from discord import Intents
 
 from src.bot.dc_bot.dc_bot import BotClient
@@ -9,7 +9,7 @@ from src.bot.shared.utils.dc_bot.fetch_bot_cred import fetch_bc
 from src.utils.clog.clogger import Logger
 
 
-def dc_main(log: Logger) -> None:
+def dc_main(log: Logger) -> None | NoReturn:
     """Main module of the discord bot.
 
     Args:
@@ -24,9 +24,15 @@ def dc_main(log: Logger) -> None:
     BASE_PATH: str = "/".join(dirname(__file__).split("/")[:-3])
     PATH: str = f"{BASE_PATH}/src/data/shared/commands.json"
 
-    ref: TextIO
-    with open(PATH, "r", encoding="utf-8") as ref:
-        commands: dict[str, str | list[str]] = load(ref)
+    try:
+        ref: TextIO
+        with open(PATH, "r", encoding="utf-8") as ref:
+            commands: dict[str, str | list[str]] = load(ref)
+    except (FileNotFoundError, PermissionError, IOError) as Err:
+        log.logger(
+            "E", f"{Err}. Cannot open reference file, aborting ..."
+        )
+        raise SystemExit
 
     client = BotClient(log, commands, intents=intents)
     client.run(bot_cred.token)
