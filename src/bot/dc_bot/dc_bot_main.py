@@ -1,3 +1,6 @@
+from json import load
+from os.path import dirname
+from typing import TextIO
 from discord import Intents
 
 from src.bot.dc_bot.dc_bot import BotClient
@@ -18,5 +21,12 @@ def dc_main(log: Logger) -> None:
     intents = Intents.default()
     intents.message_content = True
 
-    client = BotClient(log, intents=intents)
+    BASE_PATH: str = "/".join(dirname(__file__).split("/")[:-3])
+    PATH: str = f"{BASE_PATH}/src/data/shared/commands.json"
+
+    ref: TextIO
+    with open(PATH, "r", encoding="utf-8") as ref:
+        commands: dict[str, str | list[str]] = load(ref)
+
+    client = BotClient(log, commands, intents=intents)
     client.run(bot_cred.token)
