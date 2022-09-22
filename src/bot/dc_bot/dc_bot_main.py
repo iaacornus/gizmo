@@ -6,7 +6,7 @@ from src.bot.shared.utils.dc_bot.fetch_bot_cred import fetch_bc
 from src.utils.clog.clogger import Logger
 
 
-async def dc_main(log: Logger) -> None:
+def dc_main(log: Logger) -> None:
     """Main module of the discord bot.
 
     Args:
@@ -19,4 +19,4 @@ async def dc_main(log: Logger) -> None:
     intents.message_content = True
 
     client = BotClient(log, intents=intents)
-    await client.run(bot_cred.token)
+    client.run(bot_cred.token)
