@@ -1,2 +1,10 @@
 python3.10
 python3-pip
+libX11-devel
+libXft-devel
+libXinerama-devel
+libXrandr-devel
+libXScrnSaver-devel
+xmonad
+xmonad-contrib
+ghc-xmonad*
