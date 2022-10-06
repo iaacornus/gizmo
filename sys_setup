@@ -1,0 +1,4 @@
+os: Fedora Server
+wm: Xmonad
+protocol: X11
+
