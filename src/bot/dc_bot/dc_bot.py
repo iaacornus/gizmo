@@ -33,8 +33,8 @@ class BotClient(Client):
                 self.log,
                 message.content,
                 self.commands,
-                message.author.id,
-                self.ref_uid
+                int(message.author.id),
+                int(self.ref_uid)
             )
         try:
             if feedback is not None:
