@@ -7,7 +7,7 @@ class Filter:
     def __init__(self, log: Logger) -> None:
         self.log: Logger = log
 
-    def evlxec(
+    def _evlxec(
             self,
             msg: str,
             cmd: str,
@@ -56,7 +56,7 @@ class Filter:
 
         return (2, "Command not found.")
 
-    def eval_retcode(
+    def _eval_retcode(
             self,
             ret_code: int,
             feedback: str,
@@ -113,14 +113,14 @@ class Filter:
         for command in commands.values():
             if isinstance(command, list):
                 for mcommand in command:
-                    return self.eval_retcode(
-                        self.evlxec(
+                    return self._eval_retcode(
+                        self._evlxec(
                             cmd, mcommand, uid, ref_uid
                         )
                     )
             else:
-                return self.eval_retcode(
-                    self.evlxec(
+                return self._eval_retcode(
+                    self._evlxec(
                         cmd, mcommand, uid, ref_uid
                     )
                 )
