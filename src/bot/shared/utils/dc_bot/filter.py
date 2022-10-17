@@ -1,3 +1,5 @@
+from subprocess import run, CalledProcessError
+
 from src.utils.clog.clogger import Logger
 
 
@@ -14,8 +16,8 @@ def filter(
         Whether the message is a correct command and its feedback.
     """
 
-    def eval_cmd(log: Logger, cmd: str, command: str) -> str | None:
-        """Evaluate the command.
+    def evlxec(log: Logger, cmd: str, command: str) -> str | None:
+        """Evaluate and execute the command.
 
         Args:
             log -- instance of Logger
@@ -27,10 +29,22 @@ def filter(
         """
 
         if cmd == f"!{command.lower()}":
-            exec_cmd: list[str] = [command]
-            exec_cmd.extend(msg.split()[1:])
-            log.logger("I", f"Command executed: {command}, {exec_cmd}")
-            return f"Executed command: **{exec_cmd}**"
+            try:
+                exec_cmd: list[str] = [command]
+                exec_cmd.extend(msg.split()[1:])
+
+                if run(exec_cmd).returncode != 0:
+                    raise CalledProcessError
+
+            except CalledProcessError as Err:
+                log.logger(
+                    "I", f"Command failed: {command}, {exec_cmd}; {Err}"
+                )
+            else:
+                log.logger(
+                    "I", f"Command executed: {command}, {exec_cmd}"
+                )
+                return f"Executed command: **{exec_cmd}**"
 
         return None
 
@@ -44,12 +58,12 @@ def filter(
         if isinstance(command, list):
             for microcommand in command:
                 if (
-                        feedback := eval_cmd(log, cmd, microcommand)
+                        feedback := evlxec(log, cmd, microcommand)
                     ) is not None:
                     return True, feedback
         else:
             if (
-                    feedback := eval_cmd(log, cmd, command)
+                    feedback := evlxec(log, cmd, command)
                 ) is not None:
                 return True, feedback
 
