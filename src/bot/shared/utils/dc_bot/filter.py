@@ -23,15 +23,13 @@ def filter(
         Whether the message is a correct command and its feedback.
     """
 
-    def _evlxec(
-            msg: str,
+    def evlxec(
             cmd: str,
             command: str
-        ) -> str:
+        ) -> tuple[bool, list[str]]:
         """Evaluate and execute the command.
 
         Args:
-            msg -- message of the user
             cmd -- command by user
             command -- reference command
 
@@ -55,19 +53,26 @@ def filter(
                 log.logger(
                     "I", f"Command executed: {command}, {exec_cmd}"
                 )
-                return f"Executed command: **{exec_cmd}**"
+                return True, exec_cmd
 
-        return "Command not found."
+        return False, exec_cmd
 
-    if not msg.startswith("!") or uid != ref_uid:
+    if (not msg.startswith("!")) or (uid != ref_uid):
         return None
 
     cmd: str = msg.split()[0].lower()
 
-    command: str | list[str]; mcommand: str; output: tuple[bool, str]
+    command: str | list[str]
+    mcommand: str
+    fback: tuple[bool, list[str]]
+
     for command in commands.values():
         if isinstance(command, list):
             for mcommand in command:
-                return _evlxec(cmd, mcommand, uid, ref_uid)
+                if (fback := evlxec(cmd, mcommand))[0]:
+                    return f"Executed command: **{fback[1]}**"
         else:
-            return _evlxec(cmd, mcommand, uid, ref_uid)
+            if (fback := evlxec(cmd, command))[0]:
+                return f"Executed command: **{fback[1]}**"
+
+    return "Command not found."
