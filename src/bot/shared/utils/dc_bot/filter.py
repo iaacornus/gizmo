@@ -11,9 +11,7 @@ class Filter:
             self,
             msg: str,
             cmd: str,
-            command: str,
-            uid: str,
-            ref_uid: int
+            command: str
         ) -> tuple[int, str]:
         """Evaluate and execute the command.
 
@@ -21,8 +19,6 @@ class Filter:
             msg -- message of the user
             cmd -- command by user
             command -- reference command
-            uid -- user id
-            ref_uid -- reference user id
 
         Returns:
             A particular return code for each cases:
@@ -30,11 +26,6 @@ class Filter:
                 1 - the command found and executed.
                 2 - the command not found and not executed.
         """
-
-        if uid != ref_uid:
-            return (
-                0, "UID not recognized, not executing command."
-            )
 
         if cmd == f"!{command.lower()}":
             try:
@@ -104,7 +95,7 @@ class Filter:
             Whether the message is a correct command and its feedback.
         """
 
-        if not msg.startswith("!"):
+        if not msg.startswith("!") or uid != ref_uid:
             return None
 
         cmd: str = msg.split()[0].lower()
