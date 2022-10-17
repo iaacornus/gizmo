@@ -14,12 +14,15 @@ class BotClient(Client):
             self,
             log: Logger,
             commands: dict[str, str | list[str]],
+            ref_uid: int,
             *,
             intents: Intents,
             **options: Any
         ) -> None:
         self.log = log
         self.commands = commands
+        self.ref_uid = ref_uid
+
         super().__init__(intents=intents, **options)
 
     async def on_ready(self) -> None:
@@ -27,7 +30,11 @@ class BotClient(Client):
 
     async def on_message(self, message: Any) -> Any:
         feedback: Optional[tuple[bool, str]] = filter(
-                self.log, message.content, self.commands
+                self.log,
+                message.content,
+                self.commands,
+                message.author.id,
+                self.ref_uid
             )
         try:
             if feedback is not None:
