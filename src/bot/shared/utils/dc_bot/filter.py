@@ -41,11 +41,11 @@ def filter(
             exec_cmd: list[str] = [command]
             exec_cmd.extend(msg.split()[1:])
 
-            if cmd != f"!{command.lower()}":
-                pass
-
-            if run(exec_cmd).returncode != 0:
-                raise CalledProcessError(1, exec_cmd)
+            if cmd == f"!{command.lower()}":
+                if run(exec_cmd).returncode != 0:
+                    raise CalledProcessError(1, exec_cmd)
+            else:
+                return False, exec_cmd
         except CalledProcessError as Err:
             log.logger(
                 "I", f"Command failed: {command}, {exec_cmd}; {Err}"
@@ -55,8 +55,6 @@ def filter(
                 "I", f"Command executed: {command}, {exec_cmd}"
             )
             return True, exec_cmd
-
-        return False, exec_cmd
 
     if (not msg.startswith("!")) or (uid != ref_uid):
         return None
