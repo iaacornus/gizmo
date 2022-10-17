@@ -8,3 +8,4 @@ libXScrnSaver-devel
 xmonad
 xmonad-contrib
 ghc-xmonad*
+lightdm
