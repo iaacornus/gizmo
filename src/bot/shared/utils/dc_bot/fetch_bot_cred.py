@@ -1,6 +1,6 @@
 from os import getenv
 from os.path import dirname, exists
-from typing import NoReturn, Optional
+from typing import NoReturn
 
 from dotenv import load_dotenv
 
@@ -25,11 +25,9 @@ def fetch_bc(log: Logger) -> DCBotCred | NoReturn:
         log.logger("E", "Bot credentials not found, aborting ...")
         raise SystemExit
 
-
     load_dotenv(f"{BASE_PATH}/bot.env")
 
-    token_: Optional[str]
-    token: str = (
-            token_ if (token_ := getenv("TOKEN")) is not None else "EMPTY"
-        )
-    return DCBotCred(token)
+    return DCBotCred(
+        getenv("TOKEN"),
+        getenv("UID")
+    )
