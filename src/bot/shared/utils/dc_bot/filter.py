@@ -37,14 +37,13 @@ def filter(
             A boolean and a stdout or stderr
         """
 
+        exec_cmd: list[str] = [command]
+        exec_cmd.extend(msg.split()[1:])
+
         if cmd == f"!{command.lower()}":
             try:
-                exec_cmd: list[str] = [command]
-                exec_cmd.extend(msg.split()[1:])
-
                 if run(exec_cmd).returncode != 0:
                     raise CalledProcessError
-
             except CalledProcessError as Err:
                 log.logger(
                     "I", f"Command failed: {command}, {exec_cmd}; {Err}"
