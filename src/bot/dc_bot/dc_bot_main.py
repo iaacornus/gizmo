@@ -1,22 +1,24 @@
 from json import load
 from os.path import dirname
-from typing import TextIO
+from typing import NoReturn, TextIO
 from discord import Intents
 
 from src.bot.dc_bot.dc_bot import BotClient
-from src.data.dc_bot.dc_bot_cred import DCBotCred
+from src.data.dc_bot.dc_bot_cred import DCBot
 from src.bot.shared.utils.dc_bot.fetch_bot_cred import fetch_bc
 from src.utils.clog.clogger import Logger
 
 
-def dc_main(log: Logger) -> None:
+def dc_main(log: Logger) -> None | NoReturn:
     """Main module of the discord bot.
 
     Args:
         log -- instance of Logger.
     """
 
-    bot_cred: DCBotCred = fetch_bc(log)
+    bot_cred: DCBot | bool = fetch_bc(log)
+    if not bot_cred:
+        raise SystemExit
 
     intents = Intents.default()
     intents.message_content = True
@@ -34,5 +36,10 @@ def dc_main(log: Logger) -> None:
         )
         raise SystemExit
 
-    client = BotClient(log, commands, intents=intents)
+    client = BotClient(
+            log,
+            commands,
+            bot_cred.ref_uid,
+            intents=intents
+        )
     client.run(bot_cred.token)
