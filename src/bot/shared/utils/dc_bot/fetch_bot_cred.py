@@ -23,11 +23,16 @@ def fetch_bc(log: Logger) -> DCBot | NoReturn:
 
     if not exists(PATH):
         log.logger("E", "Bot credentials not found, aborting ...")
-        return False
+        raise SystemExit
 
     load_dotenv(f"{BASE_PATH}/bot.env")
 
+    token: str = (
+            token_ if (token_ := getenv("TOKEN")) is not None else "EMPTY"
+        )
+    uid: int = int(uid_) if (uid_ := getenv("UID")) is not None else 0
+
     return DCBot(
-        getenv("TOKEN"),
-        getenv("UID")
+        token,
+        uid
     )
