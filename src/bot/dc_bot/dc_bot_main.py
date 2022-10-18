@@ -1,6 +1,6 @@
 from json import load
 from os.path import dirname
-from typing import NoReturn, TextIO
+from typing import TextIO
 from discord import Intents
 
 from src.bot.dc_bot.dc_bot import BotClient
