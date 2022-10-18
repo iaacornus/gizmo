@@ -10,40 +10,52 @@ Some of the planned features of the assistant includes:
 
 Below is the project structure as of this commit.
 
-+-- check.sh
-+-- figs
-|   +-- main
+|-- check.sh
+|-- figs
+|   |-- main
 |   `-- main.png
-+-- LICENSE
-+-- README
-+-- requirements.txt
-+-- src
-|   +-- bot
-|   |   +-- dc_bot
-|   |   |   +-- dc_bot_main.py
-|   |   |   +-- dc_bot.py
+|-- LICENSE
+|-- README
+|-- requirements.txt
+|-- scripts
+|   `-- sys_setup.sh
+|-- src
+|   |-- bot
+|   |   |-- dc_bot
+|   |   |   |-- dc_bot_main.py
+|   |   |   |-- dc_bot.py
 |   |   |   `-- __init__.py
-|   |   +-- __init__.py
+|   |   |-- __init__.py
 |   |   `-- shared
-|   |       +-- __init__.py
+|   |       |-- __init__.py
 |   |       `-- utils
-|   |           +-- dc_bot
-|   |           |   +-- fetch_bot_cred.py
-|   |           |   +-- filter.py
+|   |           |-- dc_bot
+|   |           |   |-- fetch_bot_cred.py
+|   |           |   |-- filter.py
 |   |           |   `-- __init__.py
 |   |           `-- __init__.py
-|   +-- data
-|   |   +-- commands.json
-|   |   +-- dc_bot_cred.py
-|   |   `-- __init__.py
-|   +-- __init__.py
-|   +-- main.py
+|   |-- data
+|   |   |-- dc_bot
+|   |   |   |-- dc_bot_cred.py
+|   |   |   `-- __init__.py
+|   |   |-- __init__.py
+|   |   `-- shared
+|   |       `-- commands.json
+|   |-- __init__.py
+|   |-- main.py
 |   `-- utils
-|       +-- clog
-|       |   +-- clogger.py
+|       |-- clog
+|       |   |-- clogger.py
 |       |   `-- __init__.py
-|       +-- __init__.py
+|       |-- __init__.py
+|       |-- misc
+|       |   |-- __init__.py
+|       |   `-- wiki.py
 |       `-- voices
 |           `-- __init__.py
-`-- sysdeps.txt
+|-- sysdeps.txt
+|-- sys_setup
+`-- templates
+    `-- bot.env.temp
+
 
