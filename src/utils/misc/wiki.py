@@ -1,7 +1,7 @@
-from wikipediaapi import Wikipedia, ExtractFormat, WikipediaPage
+from wikipediaapi import Wikipedia, ExtractFormat, WikipediaPage # type: ignore
 
 
-def fetch_wiki(word: str) -> tuple[str, str]:
+def fetch_wiki(word: str) -> tuple[str, str] | None:
     """Fetch the wikipedia page of the given word.
 
     Args:
@@ -19,3 +19,5 @@ def fetch_wiki(word: str) -> tuple[str, str]:
 
     if page_py.exists():
         return page_py.title, page_py.summary
+    else:
+        return None

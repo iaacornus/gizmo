@@ -40,3 +40,5 @@ def dc_main(log: Logger) -> None:
             intents=intents
         )
     client.run(bot_cred.token)
+
+    return None

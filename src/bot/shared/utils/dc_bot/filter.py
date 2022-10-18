@@ -45,7 +45,7 @@ def filter(
                 if run(exec_cmd).returncode != 0:
                     raise CalledProcessError(1, exec_cmd)
             else:
-                return False, exec_cmd
+                raise CalledProcessError(1, exec_cmd)
         except CalledProcessError as Err:
             log.logger(
                 "I", f"Command failed: {command}, {exec_cmd}; {Err}"
@@ -55,6 +55,8 @@ def filter(
                 "I", f"Command executed: {command}, {exec_cmd}"
             )
             return True, exec_cmd
+
+        return False, exec_cmd
 
     if (not msg.startswith("!")) or (uid != ref_uid):
         return None
