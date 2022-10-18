@@ -9,17 +9,14 @@ from src.bot.shared.utils.dc_bot.fetch_bot_cred import fetch_bc
 from src.utils.clog.clogger import Logger
 
 
-def dc_main(log: Logger) -> None | NoReturn:
+def dc_main(log: Logger) -> None:
     """Main module of the discord bot.
 
     Args:
         log -- instance of Logger.
     """
 
-    bot_cred: DCBot | bool = fetch_bc(log)
-    if not bot_cred:
-        raise SystemExit
-
+    bot_cred: DCBot = fetch_bc(log)
     intents = Intents.default()
     intents.message_content = True
 

@@ -29,7 +29,7 @@ class BotClient(Client):
         self.log.logger("I", "Bot is ready.")
 
     async def on_message(self, message: Any) -> Any:
-        feedback: Optional[tuple[bool, str]] = filter(
+        feedback: Optional[str] = filter(
                 self.log,
                 message.content,
                 self.commands,
