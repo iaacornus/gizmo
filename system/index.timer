@@ -1,0 +1,10 @@
+[Unit]
+Description=User file indexing algorithm service.
+
+[Timer]
+Persistent=true
+OnCalendar=*-*-* 00:00:00
+Unit=index.service
+
+[Install]
+WantedBy=timers.target
