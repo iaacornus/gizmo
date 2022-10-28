@@ -133,3 +133,4 @@ venv/
 *__test__*
 *experiment/
 bot.env
+proj_struct.temp
