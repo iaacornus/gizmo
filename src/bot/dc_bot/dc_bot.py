@@ -3,7 +3,7 @@ from typing import Any, Optional
 from discord import Client, Intents
 from discord.errors import HTTPException
 
-from src.bot.shared.utils.dc_bot.filter import filter
+from src.bot.shared.utils.filter import filter
 from src.utils.clog.clogger import Logger
 
 
