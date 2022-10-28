@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-tree --gitignore >> proj_struct.temp
+tree --gitignore > proj_struct.temp
