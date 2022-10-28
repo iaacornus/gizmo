@@ -9,8 +9,13 @@ Some of the planned features of the assistant includes:
 - [ ] execution of command via discord or telegram message
 
 Below is the project structure as of this commit.
-
 .
++-- assets
+|   +-- misc
+|   |   +-- remove_spec_char.py
+|   |   `-- update_proj_structure.sh
+|   `-- templates
+|       `-- README
 +-- check.sh
 +-- config
 |   `-- system.ini
@@ -27,8 +32,12 @@ Below is the project structure as of this commit.
 |   `-- main.png
 +-- LICENSE
 +-- mypy.ini
++-- proj_struct.temp
 +-- README
 +-- requirements.txt
++-- resources
+|   `-- shared
+|       `-- commands.json
 +-- scripts
 |   +-- indexing.py
 |   `-- sys_setup.sh
@@ -42,25 +51,23 @@ Below is the project structure as of this commit.
 |   |   `-- shared
 |   |       +-- __init__.py
 |   |       `-- utils
-|   |           +-- dc_bot
-|   |           |   +-- fetch_bot_cred.py
-|   |           |   +-- filter.py
-|   |           |   `-- __init__.py
+|   |           +-- fetch_bot_cred.py
+|   |           +-- filter.py
 |   |           `-- __init__.py
 |   +-- data
 |   |   +-- dc_bot
 |   |   |   +-- dc_bot_cred.py
 |   |   |   `-- __init__.py
-|   |   +-- __init__.py
-|   |   `-- shared
-|   |       `-- commands.json
+|   |   `-- __init__.py
 |   +-- __init__.py
 |   +-- main.py
 |   `-- utils
-|       +-- clog
-|       |   +-- clogger.py
+|       +-- data
 |       |   `-- __init__.py
 |       +-- __init__.py
+|       +-- log
+|       |   +-- clogger.py
+|       |   `-- __init__.py
 |       +-- misc
 |       |   +-- __init__.py
 |       |   `-- wiki.py
@@ -68,10 +75,14 @@ Below is the project structure as of this commit.
 |           `-- __init__.py
 +-- sysdeps.txt
 +-- sys_setup
++-- sys_setup.ini
 +-- system
 |   `-- services
-|           +-- index.service
 |       `-- indexing_alg
+|           +-- index.service
 |           `-- index.timer
-`-- templates
-    `-- bot.env.temp
++-- templates
+|   `-- bot.env.temp
+`-- update_readme.sh
+
+29 directories, 45 files
