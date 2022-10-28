@@ -21,7 +21,7 @@ def dc_main(log: Logger) -> None:
     intents.message_content = True
 
     BASE_PATH: str = "/".join(dirname(__file__).split("/")[:-3])
-    PATH: str = f"{BASE_PATH}/src/data/shared/commands.json"
+    PATH: str = f"{BASE_PATH}/resources/shared/commands.json"
 
     try:
         ref: TextIO
