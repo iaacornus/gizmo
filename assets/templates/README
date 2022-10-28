@@ -1,0 +1,11 @@
+this serves as the documentation of this project, which is not meant for public
+use. Use this at your own discretion.
+
+Sayu is the name of the project that will serve as a personal AI and computer
+assistant controlled via discord and voice.
+
+Some of the planned features of the assistant includes:
+- [ ] voice recognition
+- [ ] execution of command via discord or telegram message
+
+Below is the project structure as of this commit.
