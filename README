@@ -10,52 +10,68 @@ Some of the planned features of the assistant includes:
 
 Below is the project structure as of this commit.
 
-|-- check.sh
-|-- figs
-|   |-- main
+.
++-- check.sh
++-- config
+|   `-- system.ini
++-- docs
+|   +-- api
+|   |   `-- api.md
+|   +-- config
+|   |   `-- system.ini.md
+|   `-- system
+|       `-- services
+|           `-- services.md
++-- figs
+|   +-- main
 |   `-- main.png
-|-- LICENSE
-|-- README
-|-- requirements.txt
-|-- scripts
++-- LICENSE
++-- mypy.ini
++-- README
++-- requirements.txt
++-- scripts
+|   +-- indexing.py
 |   `-- sys_setup.sh
-|-- src
-|   |-- bot
-|   |   |-- dc_bot
-|   |   |   |-- dc_bot_main.py
-|   |   |   |-- dc_bot.py
++-- src
+|   +-- bot
+|   |   +-- dc_bot
+|   |   |   +-- dc_bot_main.py
+|   |   |   +-- dc_bot.py
 |   |   |   `-- __init__.py
-|   |   |-- __init__.py
+|   |   +-- __init__.py
 |   |   `-- shared
-|   |       |-- __init__.py
+|   |       +-- __init__.py
 |   |       `-- utils
-|   |           |-- dc_bot
-|   |           |   |-- fetch_bot_cred.py
-|   |           |   |-- filter.py
+|   |           +-- dc_bot
+|   |           |   +-- fetch_bot_cred.py
+|   |           |   +-- filter.py
 |   |           |   `-- __init__.py
 |   |           `-- __init__.py
-|   |-- data
-|   |   |-- dc_bot
-|   |   |   |-- dc_bot_cred.py
+|   +-- data
+|   |   +-- dc_bot
+|   |   |   +-- dc_bot_cred.py
 |   |   |   `-- __init__.py
-|   |   |-- __init__.py
+|   |   +-- __init__.py
 |   |   `-- shared
 |   |       `-- commands.json
-|   |-- __init__.py
-|   |-- main.py
+|   +-- __init__.py
+|   +-- main.py
 |   `-- utils
-|       |-- clog
-|       |   |-- clogger.py
+|       +-- clog
+|       |   +-- clogger.py
 |       |   `-- __init__.py
-|       |-- __init__.py
-|       |-- misc
-|       |   |-- __init__.py
+|       +-- __init__.py
+|       +-- misc
+|       |   +-- __init__.py
 |       |   `-- wiki.py
 |       `-- voices
 |           `-- __init__.py
-|-- sysdeps.txt
-|-- sys_setup
++-- sysdeps.txt
++-- sys_setup
++-- system
+|   `-- services
+|           +-- index.service
+|       `-- indexing_alg
+|           `-- index.timer
 `-- templates
     `-- bot.env.temp
-
-
