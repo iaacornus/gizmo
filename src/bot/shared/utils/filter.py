@@ -1,6 +1,6 @@
 from subprocess import run, CalledProcessError
 
-from src.utils.clog.clogger import Logger
+from src.utils.log.clogger import Logger
 
 
 def filter(

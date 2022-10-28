@@ -1,5 +1,5 @@
 from src.bot.dc_bot.dc_bot_main import dc_main
-from src.utils.clog.clogger import Logger
+from src.utils.log.clogger import Logger
 
 
 def main() -> None:
