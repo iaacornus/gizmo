@@ -1,0 +1,9 @@
+[Unit]
+Description=User file indexing algorithm service.
+Wants=index.timer
+
+[Service]
+Type=oneshot
+
+[Install]
+WantedBy=default.target
