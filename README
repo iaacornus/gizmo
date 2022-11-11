@@ -32,15 +32,14 @@ Below is the project structure as of this commit.
 |   `-- main.png
 +-- LICENSE
 +-- mypy.ini
-+-- proj_struct.temp
 +-- README
 +-- requirements.txt
 +-- resources
 |   `-- shared
 |       `-- commands.json
 +-- scripts
-|   +-- indexing.py
-|   `-- sys_setup.sh
+|   `-- system
+|       `-- setup.sh
 +-- src
 |   +-- bot
 |   |   +-- dc_bot
@@ -62,17 +61,20 @@ Below is the project structure as of this commit.
 |   +-- __init__.py
 |   +-- main.py
 |   `-- utils
+|       +-- core
+|       |   +-- indexing.py
+|       |   +-- __init__.py
+|       |   `-- voices
+|       |       `-- __init__.py
 |       +-- data
 |       |   `-- __init__.py
 |       +-- __init__.py
 |       +-- log
 |       |   +-- clogger.py
 |       |   `-- __init__.py
-|       +-- misc
-|       |   +-- __init__.py
-|       |   `-- wiki.py
-|       `-- voices
-|           `-- __init__.py
+|       `-- misc
+|           +-- __init__.py
+|           `-- wiki.py
 +-- sysdeps.txt
 +-- sys_setup
 +-- sys_setup.ini
@@ -85,4 +87,4 @@ Below is the project structure as of this commit.
 |   `-- bot.env.temp
 `-- update_readme.sh
 
-29 directories, 45 files
+31 directories, 45 files
