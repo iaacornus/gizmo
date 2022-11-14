@@ -87,3 +87,10 @@ function setup_services () {
         esac
     done
 }
+
+function main () {
+    sudo dnf update -y
+    setup_dir
+    install_deps
+    setup_services
+}
