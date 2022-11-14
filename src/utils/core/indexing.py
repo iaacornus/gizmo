@@ -7,7 +7,7 @@ from typing import NoReturn
 from src.utils.log.clogger import Logger
 
 
-def index_dir(log: Logger, PATH: str = None) -> None | NoReturn:
+def index_dir(log: Logger, PATH: str | None = None) -> None | NoReturn:
     """Index the all the files inside a directory and output it
     on a file.
 
@@ -16,8 +16,8 @@ def index_dir(log: Logger, PATH: str = None) -> None | NoReturn:
     """
 
     if PATH is None:
-        BASE_PATH: str = dirname(__file__).split("/")[:-3]
-        PATH: str = "/".join(BASE_PATH)
+        BASE_PATH: list[str] = dirname(__file__).split("/")[:-3]
+        PATH = "/".join(BASE_PATH)
         log.logger("I", f"No path given, using {PATH} as path ...")
 
     HOME: Path = Path.home()
