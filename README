@@ -4,11 +4,45 @@ use. Use this at your own discretion.
 Sayu is the name of the project that will serve as a personal AI and computer
 assistant controlled via discord and voice.
 
+========
+
 Some of the planned features of the assistant includes:
-- [ ] voice recognition
-- [ ] execution of command via discord or telegram message
+- Command execution via:
+    - [ ] voice recognition
+    - [ ] commandline interface
+- [ ] Remote command execution via:
+    - [X] discord
+    - [ ] telegram
+    - [ ] SMS
+    - [ ] email
+- [ ] Basic commands for:
+    - [ ] printing
+    - [ ] web scraping
+        - [ ] downloading
+        - [ ] information processing
+    - [ ] file transmission
+        - [ ] from server-side to client
+        - [ ] from client to server side
+    - [ ] basic UNIX commands
+    - [ ] remote server management
+    - [ ] programming language interpreter/compiler
+        - [ ] python
+        - [ ] c, c++
+        - [ ] rust
+        - [ ] shell
+        - [ ] julia
+    - [ ] basic document formatting via latex
+    - [ ]
+
+========
+
+Currently implemented features:
+- [X] Remote command execution via discord
+
+========
 
 Below is the project structure as of this commit.
+
 .
 +-- assets
 |   +-- misc
@@ -79,6 +113,7 @@ Below is the project structure as of this commit.
 |           +-- __init__.py
 |           `-- wiki.py
 +-- system
+|   +-- packages.list
 |   +-- service.list
 |   +-- services
 |   |   `-- index.service
@@ -92,4 +127,4 @@ Below is the project structure as of this commit.
 +-- tools
 `-- update_readme.sh
 
-34 directories, 47 files
+34 directories, 48 files
