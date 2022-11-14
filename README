@@ -12,8 +12,9 @@ Below is the project structure as of this commit.
 .
 +-- assets
 |   +-- misc
-|   |   +-- remove_spec_char.py
-|   |   `-- update_proj_structure.sh
+|   |   `-- scripts
+|   |       +-- replace_spec_char.py
+|   |       `-- update_proj_structure.sh
 |   `-- templates
 |       `-- README
 +-- check.sh
@@ -29,6 +30,7 @@ Below is the project structure as of this commit.
 |           `-- services.md
 +-- figs
 |   +-- main
+|   +-- main.drawio
 |   `-- main.png
 +-- LICENSE
 +-- mypy.ini
@@ -40,6 +42,7 @@ Below is the project structure as of this commit.
 +-- scripts
 |   `-- system
 |       `-- setup.sh
++-- server
 +-- src
 |   +-- bot
 |   |   +-- dc_bot
@@ -75,16 +78,18 @@ Below is the project structure as of this commit.
 |       `-- misc
 |           +-- __init__.py
 |           `-- wiki.py
-+-- sysdeps.txt
-+-- sys_setup
-+-- sys_setup.ini
 +-- system
-|   `-- services
-|       `-- indexing_alg
-|           +-- index.service
-|           `-- index.timer
+|   +-- service.list
+|   +-- services
+|   |   `-- index.service
+|   +-- sysdeps.txt
+|   +-- sys_setup
+|   +-- sys_setup.ini
+|   `-- tasks
+|       `-- index.timer
 +-- templates
 |   `-- bot.env.temp
++-- tools
 `-- update_readme.sh
 
-31 directories, 45 files
+34 directories, 47 files
