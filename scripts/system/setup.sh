@@ -34,3 +34,22 @@ function install_deps () {
         fi
     done
 }
+
+function setup_services () {
+    declare -a Services=("index", "meow")
+    echo "" > missing.lists # clear previous list, if there exists one
+
+    for service in "${Services[@]}"; do
+        if [ ! -f system/services/$service ] && [ ! -f system/tasks/$service ]; then
+            echo -e "$FAIL $service not found, skipping ..."
+            echo $service >> missing.lists
+        fi
+    done
+
+    cat missing.lists | while read line; do
+        case $line in
+            index)
+                wget #link;;
+        esac
+    done
+}
