@@ -2,7 +2,10 @@ from os.path import dirname
 from typing import TextIO
 
 
-def remove_spec_char() -> None:
+def replace_spec_char() -> None:
+    """Replace '└──', '├──', and '│  ' with, '`--`, `+--`, and `|  `,
+    respectively in the output of `tree --gitignore`"""
+
     BASE_PATH: str = "/".join(dirname(__file__).split("/")[:-2])
     PATH: str = f"{BASE_PATH}/assets/templates/README"
 
@@ -41,4 +44,4 @@ def remove_spec_char() -> None:
 
 
 if __name__ == "__main__":
-    remove_spec_char()
+    replace_spec_char()
