@@ -6,7 +6,7 @@ def replace_spec_char() -> None:
     """Replace '└──', '├──', and '│  ' with, '`--`, `+--`, and `|  `,
     respectively in the output of `tree --gitignore`"""
 
-    BASE_PATH: str = "/".join(dirname(__file__).split("/")[:-2])
+    BASE_PATH: str = "/".join(dirname(__file__).split("/")[:-3])
     PATH: str = f"{BASE_PATH}/assets/templates/README"
 
     try:
