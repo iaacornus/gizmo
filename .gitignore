@@ -134,3 +134,4 @@ venv/
 *experiment/
 bot.env
 proj_struct.temp
+*missing.lists
