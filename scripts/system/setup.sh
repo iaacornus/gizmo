@@ -70,7 +70,7 @@ function install_deps () {
 }
 
 function setup_services () {
-    declare -a Services=("index" "meow")
+    declare -a Services=("index")
     echo "" > missing.lists # clear previous list, if there exists one
 
     for service in "${Services[@]}"; do
