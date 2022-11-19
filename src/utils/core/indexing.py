@@ -4,7 +4,7 @@ from os import mkdir
 from os.path import isfile, dirname, exists
 from typing import NoReturn
 
-from src.utils.log.clogger import Logger
+from src.utils.log.logger import Logger
 
 
 def index_dir(log: Logger, PATH: str | None = None) -> None | NoReturn:

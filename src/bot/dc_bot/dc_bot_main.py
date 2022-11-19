@@ -6,7 +6,7 @@ from discord import Intents
 from src.bot.dc_bot.dc_bot import BotClient
 from src.data.dc_bot.dc_bot_cred import DCBot
 from src.bot.shared.utils.fetch_bot_cred import fetch_bc
-from src.utils.log.clogger import Logger
+from src.utils.log.logger import Logger
 
 
 def dc_main(log: Logger) -> None:

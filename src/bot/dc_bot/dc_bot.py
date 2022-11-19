@@ -4,7 +4,7 @@ from discord import Client, Intents
 from discord.errors import HTTPException
 
 from src.bot.shared.utils.filter import filter
-from src.utils.log.clogger import Logger
+from src.utils.log.logger import Logger
 
 
 class BotClient(Client):
