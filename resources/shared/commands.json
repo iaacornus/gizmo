@@ -1,9 +1,30 @@
 {
-    "echo": ["echo"],
-    "print": ["print-doc", "print"],
-    "turn on": ["turn-on", "on"],
-    "turn off": ["turn-off", "off", "shutdown", "power-off"],
-    "send": ["send", "copy"],
-    "save": ["save", "download"],
-    "clear": ["clear"]
+    "echo": [
+            "echo"
+        ],
+    "print": [
+            "print-doc",
+            "print"
+        ],
+    "turn on": [
+            "turn-on",
+            "on"
+        ],
+    "turn off": [
+            "turn-off",
+            "off",
+            "shutdown",
+            "power-off"
+        ],
+    "send": [
+            "send",
+            "copy"
+        ],
+    "save": [
+            "save",
+            "download"
+        ],
+    "clear": [
+            "clear"
+        ]
 }
