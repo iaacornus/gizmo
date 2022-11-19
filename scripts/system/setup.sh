@@ -64,7 +64,7 @@ function install_deps () {
             echo -e "$SUCCESS Proceeding to next process ..."
             break
         else
-            echo -e "$FAIL Retrying. Attempts left: $i, ..."
+            echo -e "$FAIL Retrying. Trial number $i ..."
         fi
     done
 }
