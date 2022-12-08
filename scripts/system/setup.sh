@@ -8,7 +8,7 @@ PROC="\033[1;36m[ PROC ]\033[0m"
 function create_dir () {
     if [ ! -d $1 ]; then
         echo -e "$PROC Setting up dir: $1 ..."
-        mkdir $1
+        mkdir $1k=
     fi
 }
 
